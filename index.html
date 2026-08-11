@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kiyim Razmerini Aniqlash</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f5f9;
+        }
+
+        .container {
+            width: 400px;
+            max-width: 90%;
+            margin: 80px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .gender {
+            display: flex;
+            gap: 10px;
+        }
+
+        .gender button {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .gender button:hover {
+            background: #eef4ff;
+        }
+
+        .main-button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #1769e0;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .main-button:hover {
+            background: #0d56bd;
+        }
+
+        #natija {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            background: #eef7ff;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>👕 Kiyim Razmerini Aniqlash</h1>
+
+        <p class="description">
+            Bo'y va vazningizni kiriting,
+            sizga mos kiyim razmerini aniqlaymiz.
+        </p>
+
+        <label for="boy">Bo'yingiz (sm)</label>
+
+        <input
+            id="boy"
+            type="number"
+            placeholder="Masalan: 175"
+        >
+
+
+        <label for="vazn">Vazningiz (kg)</label>
+
+        <input
+            id="vazn"
+            type="number"
+            placeholder="Masalan: 70"
+        >
+
+
+        <label>Jinsingiz</label>
+
+        <div class="gender">
+
+            <button onclick="erkakTanlash()">
+                👨 Erkak
+            </button>
+
+            <button onclick="ayolTanlash()">
+                👩 Ayol
+            </button>
+
+        </div>
+
+
+        <button
+            class="main-button"
+            onclick="aniqlash()"
+        >
+            RAZMERNI ANIQLASH
+        </button>
+
+
+        <div id="natija"></div>
+
+    </div>
+
+
+    <script>
+
+        let jins = "";
+
+        // Erkak tanlash
+        function erkakTanlash() {
+
+            jins = "erkak";
+
+            alert("Erkak tanlandi");
+
+        }
+
+
+        // Ayol tanlash
+        function ayolTanlash() {
+
+            jins = "ayol";
+
+            alert("Ayol tanlandi");
+
+        }
+
+
+        // Razmerni aniqlash
+        function aniqlash() {
+
+            let boy = Number(
+                document.getElementById("boy").value
+            );
+
+            let vazn = Number(
+                document.getElementById("vazn").value
+            );
+
+
+            // Ma'lumot kiritilmagan bo'lsa
+            if (boy === 0 || vazn === 0) {
+
+                document.getElementById("natija").innerHTML =
+                    "⚠️ Iltimos, bo'y va vazningizni kiriting.";
+
+                return;
+            }
+
+
+            let razmer;
+
+
+            // Oddiy taxminiy formula
+
+            if (boy < 165 && vazn < 55) {
+
+                razmer = "S";
+
+            }
+
+            else if (boy < 175 && vazn < 70) {
+
+                razmer = "M";
+
+            }
+
+            else if (boy < 185 && vazn < 85) {
+
+                razmer = "L";
+
+            }
+
+            else if (boy < 195 && vazn < 100) {
+
+                razmer = "XL";
+
+            }
+
+            else {
+
+                razmer = "XXL";
+
+            }
+
+
+            // Natijani chiqarish
+
+            document.getElementById("natija").innerHTML =
+
+                "👕 Sizga tavsiya qilinadigan razmer:<br><br>" +
+
+                "<strong>" + razmer + "</strong>";
+
+        }
+
+    </script>
+
+</body>
+</html>
