@@ -5,71 +5,133 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f2f5f9;
+    background: #eef3f9;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
-    width: 400px;
-    margin: 80px auto;
-    padding: 35px;
+    width: 420px;
+    max-width: 95%;
+
     background: white;
+
+    padding: 30px;
+
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 28px;
 }
 
 .description {
     text-align: center;
     color: #666;
-    margin-bottom: 30px;
+    line-height: 1.4;
 }
 
 label {
     display: block;
-    margin-top: 15px;
+
+    margin-top: 18px;
     margin-bottom: 7px;
+
     font-weight: bold;
 }
 
 input {
     width: 100%;
-    padding: 13px;
+
+    padding: 14px;
+
     border: 1px solid #ccc;
     border-radius: 10px;
-    font-size: 16px;
+
+    font-size: 17px;
 }
 
-.gender {
-    display: flex;
-    gap: 10px;
+input:focus {
+    outline: none;
+    border-color: #1769e0;
 }
 
-.gender button {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background: white;
-    cursor: pointer;
-}
-
-.main-button {
+button {
     width: 100%;
-    margin-top: 25px;
+
+    margin-top: 22px;
+
     padding: 15px;
+
     border: none;
     border-radius: 10px;
+
     background: #1769e0;
     color: white;
-    font-size: 16px;
+
+    font-size: 17px;
     font-weight: bold;
+
     cursor: pointer;
 }
 
-.main-button:hover {
-    background: #0d56bd;
+button:hover {
+    background: #0d56c5;
+}
+
+#error {
+    display: none;
+
+    color: #d00000;
+
+    text-align: center;
+
+    margin-top: 15px;
+}
+
+#result {
+    display: none;
+
+    margin-top: 25px;
+}
+
+#result h2 {
+    text-align: center;
+
+    font-size: 21px;
+
+    margin-bottom: 15px;
+}
+
+.item {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px;
+
+    margin-bottom: 8px;
+
+    background: #f1f7ff;
+
+    border-radius: 10px;
+}
+
+.item span {
+    font-weight: bold;
+}
+
+.item strong {
+    color: #1769e0;
+
+    font-size: 21px;
 }
